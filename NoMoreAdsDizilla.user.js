@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         NoMoreAdsDizilla
-// @version      1.0
+// @version      1.1
 // @description  Dizilla'daki reklamları kaldırır
 // @author       Ninthy
 // @match        https://dizilla.com/*
@@ -44,14 +44,16 @@
     }
 
     var logoAdded = false;
-    var version = "1.0v"
+
+    var version = GM_info.script.version;
+    var author = GM_info.script.author;
     function allBypass() {
         if (window.location.href == "https://dizilla.com/") {
             deleteElement("section", elementEnum.ID);
         }
 
         if (!logoAdded) {
-            document.getElementsByClassName("hoverDarker")[1].innerHTML += `<span style="color: white">NoMoreAds ${version}</span>`;
+            document.getElementsByClassName("hoverDarker")[1].innerHTML += `<span style="color: white">NoMoreAds ${version} by ${author}</span>`;
             logoAdded = true;
         }
         for (classEl of elementNames.CLASS) {
