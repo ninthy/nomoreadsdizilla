@@ -45,8 +45,8 @@
 
     var logoAdded = false;
 
-    var version = GM_info.script.version;
-    var author = GM_info.script.author;
+    const version = GM_info.script.version;
+    const author = GM_info.script.author;
     function allBypass() {
         if (window.location.href == "https://dizilla.com/") {
             deleteElement("section", elementEnum.ID);
@@ -69,8 +69,8 @@
             deleteElement(classEl, elementEnum.SELECTOR);
         }
 
-
-        setTimeout(() => {disableAds = true; let adSkip = document.getElementById("preRollBd"); adSkip.parentNode.removeChild(adSkip);}, 500);
+        closeFooterFixedAd()
+        setTimeout(() => {disableAds = true; let adSkip = document.getElementById("preRollBd"); adSkip.parentNode.removeChild(adSkip); }, 250);
     }
 
     allBypass();
